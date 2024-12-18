@@ -1,17 +1,27 @@
 import ToDo from "../models/todo.js";
 import { v4 as uuidv4 } from "uuid";
 
-export const getAllToDos = async () => await ToDo.find();
-export const getToDoById = async (id) => await ToDo.findById(id);
-export const createToDo = async (description, status) => {
+export async function getAllToDos() {
+  return await ToDo.find();
+}
+
+export async function getToDoById(id) {
+  return await ToDo.findById(id);
+}
+
+export async function createToDo(description, status) {
   const newToDo = new ToDo({
     id: uuidv4(),
-    description,
-    status,
+    description: description,
+    status: status,
   });
   return await newToDo.save();
-};
-export const updateToDo = async (id, updatedData) => {
+}
+
+export async function updateToDo(id, updatedData) {
   return await ToDo.findByIdAndUpdate(id, updatedData, { new: true });
-};
-export const deleteToDo = async (id) => await ToDo.findByIdAndDelete(id);
+}
+
+export async function deleteToDo(id) {
+  return await ToDo.findByIdAndDelete(id);
+}
