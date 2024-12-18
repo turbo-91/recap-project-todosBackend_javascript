@@ -1,4 +1,4 @@
-import ToDo from "../models/todo.js";
+import ToDo from "../models/todo";
 import { v4 as uuidv4 } from "uuid";
 
 export async function getAllToDos() {

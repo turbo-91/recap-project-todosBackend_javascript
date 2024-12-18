@@ -1,11 +1,11 @@
-import dbConnect from "../../utils/dbConnect.js";
+import dbConnect from "./utils/dbConnect.js";
 import {
   getAllToDos,
   getToDoById,
   createToDo,
   updateToDo,
   deleteToDo,
-} from "../../services/todoService.js";
+} from "./services/todoService.js";
 
 export default async function handler(req, res) {
   await dbConnect();
